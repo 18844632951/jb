@@ -1,0 +1,238 @@
+/**
+ * @title iui 后台框架
+ * @version  1.0.0
+ * @author dengsh
+ * @date 2018/07/09
+ */
+/**按钮**/
+*{ font-family: Helvetica Neue,Helvetica,PingFang SC,\5FAE\8F6F\96C5\9ED1,Tahoma,Arial,sans-serif,"微软雅黑";}
+.iui-btn,.iui-btn-r{font-size: 12px; text-decoration: none;cursor: pointer; -webkit-user-select: none;margin: 5px;}
+.iui-btn{border-radius: 3px;padding: 6px 11px;text-align: center;}
+.iui-btn-r{ border-radius: 10px;padding: 4px 8px;}
+.iui-btn-defalut{background-color: #f9f9f9; color: #666;}
+.iui-btn-defalut:hover{background-color: #e9e9e9;}
+.iui-btn-defalut:active{background-color: #e5e5e5; }
+.iui-btn-blue{background-color: #4184C7; color: #fff;box-shadow: 1px 3px 30px rgba(0,0,0,.5);}
+.iui-btn-blue:hover{background-color: #478DD4; }
+.iui-btn-blue:active{background-color: #3F7AB6; }
+.iui-btn-green{background-color: #CEAA5D; color: #fff; box-shadow: 1px 3px 30px rgba(0,0,0,.5);}
+.iui-btn-green:hover{background-color: #BD9D59; }
+.iui-btn-green:active{background-color: #B19557; }
+.iui-btn-primary{background-color: #6D58C1; color: #fff; font-size: 10px;}
+.iui-btn-primary:hover{background-color: #5B97E5;}
+.iui-btn-primary:active{background-color: #6D58C1;}
+.iui-btn-worring{background-color: #E64C3C; color: #fff; font-size: 10px;}
+.iui-btn-worring:hover{background-color: #499E44;}
+.iui-btn-worring:active{background-color: #46B735;}
+.iui-btn-min{padding:2px 5px;}
+/**表格**/
+.iui-table{width: 100%; border-spacing: 0;background-color: #FFF; overflow: hidden;}
+.iui-table-border{border:1px solid #eee; border-bottom: 0;}
+.iui-table thead{height: 40px; line-height: 40px;}
+.iui-table thead tr th{font-size: 14px; color: #666; border-bottom: 1px solid #ddd; text-align: center;}
+.iui-table tbody tr{height: 50px; overflow: hidden; }
+.iui-table tbody tr td{ font-size: 12px; background-color: #fff; color: #666; border-bottom: 1px solid #f5f5f5; transition: .5s;text-align: center;}
+.iui-table tbody tr td a{text-decoration: none;}
+.iui-table tbody tr:hover td{background-color: #f5f5f5; }
+/**标签**/
+.iui-tag{padding:6px 13px; border-radius: 30px; font-size: 12px; color: #666; background-color: #fff; box-shadow: 1px 2px 10px rgba(0,0,0,.4);display: inline;margin-bottom: 5px;margin-top: 5px;margin-right: 10px;}
+.iui-tag-default{border:1px solid  #A7CCA7; padding: 2px 8px; border-radius: 3px;}
+.iui-tag-num{border-radius: 20px; font-size: 8px; color: #fff; padding:1px 3px; background-color: #D2A33F; transform: translate(0px 10px);}
+
+/**提示框**/
+.iui-prompt{width: 200px; height: 54px; background-color: rgba(0,0,0,.7); position:  fixed; left: 0; right: 0; top: 180px; margin: auto; z-index: 1000;border-radius: 3px;box-shadow: 1px 1px 50px rgba(0,0,0,.3); line-height: 54px; text-align: center; color: #fff; animation: iui-show .5s; font-size: 14px;}
+.iui-prompt img {  vertical-align: middle;  margin-right: 5px; border:0;line-height: 54px;}
+.iui-prompt .fa{ font-size: 22px;vertical-align: middle;  margin-right: 5px; border:0;line-height: 54px;}
+.iui-prompt a{text-decoration:  none;}
+
+.iui-popup{width: 300px; height: auto; background-color: #fff; position: fixed; left: 0; right: 0; box-shadow: 1px 1px 50px rgba(0,0,0,.3);top: 100px; margin: auto; border-radius: 3px; overflow: hidden;animation: iui-show .8s; z-index: 1000;}
+.iui-popup .head{height: 50px; background-color: #20222A;line-height: 50px; overflow: hidden;cursor:move; }
+.iui-popup .head span{color: #EEE; font-size: 14px;padding-left: 15px;}
+.iui-popup .head .title-wrap{width: 80%; float: left;}
+.iui-popup .head .btn-wrap{width: 20%;text-align: right;float: right;cursor: pointer;}
+.iui-popup .head .btn-wrap .close{color: #eee;padding-right: 10px; font-family: "宋体";font-weight: 600; }
+.iui-popup .body{height: auto; padding: 20px;line-height: 22px;}
+.iui-popup .body .content{font-size: 14px; font-weight: 500; color: #666; overflow: auto;}
+/**搜索框**/
+.iui-search{min-width: 300px; height: 34px;border-radius: 3px; display: inline-block; vertical-align: middle; padding:0;} 
+.iui-search:hover{ border:1px solid rgba(220,220,220,.5); background-color: #f9f9f9;}
+/**输入框**/
+.iui-input{ border-radius: 3px; border: 1px solid #ccc; outline: none; display: inline-block; margin: 5px;}
+.iui-input-default{height: 32px; line-height: 32px; text-indent: 10px; color: #666;}
+.iui-input-null{width: 100%;height: 100%;border: none; outline: none; background-color: transparent; font-size: 14px; color: #666;line-height: 34px; text-indent: 10px;    vertical-align: top;}
+.iui-input-row{ width: 100%;height: 20px; padding:5px 0; text-indent: 10px; border-radius: 3px; background-color: none;border: 1px solid #ccc; outline: none;}
+
+/**提示信息**/
+/* .iui-tips{position: relative;z-index: 0;}
+#iui-tip{padding:10px 15px; background-color: #232323; position: fixed; left: 100px; top: 50px; z-index: 10000; border-radius: 2px; color: #eee; font-size: 12px;z-index: 10000;}
+#iui-tip::after{content: ""; width: 0; height: 0; border-left: 13px solid transparent; border-bottom: 15px solid #232323;border-right:3px solid transparent; position: absolute;  right: 10px; top:-15px; }
+ */
+
+/*标题栏*/
+.iui-title{height: auto; border-left: 8px solid #23736C;  background-color: #f9f9f9; display: flex;vertical-align:middle;text-indent: 8px;font-size: 14px;}
+/*工具栏*/
+.iui-bar{overflow: hidden; padding:10px;margin: 10px auto; display: flex;}
+/**容器 ， 面板**/
+.iui-panel{height:auto;padding: 2px;background-color: #fff; height: auto; border-radius: 3px; overflow: hidden;margin: 20px auto}
+.iui-panel-shadow{box-shadow: 0px 0 20px rgba(0,0,0,.14); }
+.iui-main{width: 94%; margin: auto;}
+
+.iui-row{padding: 3px 5px; margin: 5px auto 0;}
+
+/*分割线*/
+.iui-line{width: 100%;height: 0px; display:block; border-bottom: 1px solid #ddd;}
+
+/**弹出框样式表**/
+.iui-dialog{min-width: 300px; height: auto; position: fixed; left: 0; right: 0; top: 100px; margin:auto;background-color: #fff; border-radius: 4px; box-shadow: 0 0 40px rgba(0,0,0,.2); overflow: hidden; animation: fade-out 2s;}
+.iui-dialog .ihead{height: 50px; border-bottom: 1px solid #ccc;display: flex; background-color: #20324A;}
+.iui-dialog .ihead .left{width: 85%; color: #fff;line-height: 50px; text-indent: 10px;}
+.iui-dialog .ihead .right{width: 15%; line-height: 50px; text-align: center;}
+.iui-dialog .ihead .right .close{text-decoration: none; display: block; font-size: 22px; color:#eee;}
+.iui-dialog .ihead .right .close:hover{color: #fff;}
+.iui-dialog .ihead .right .close:active{color: #ddd;}
+.iui-dialog .ibody{padding:10px 50px;height:auto;min-height: 80px; overflow: auto; display: block;}
+.iui-dialog .ifooter{height: 55px; border-top:1px solid rgba(0,0,0,.1); line-height: 55px; text-align: right;}
+.iui-dialog .ifooter span{margin-right:20px; box-shadow: none;}
+.iui-dialog .ibody .igroup{width: 100%; height:auto;margin-top:5px;}
+.iui-dialog .ibody .nowrap{display: flex;}
+.iui-dialog .ibody .igroup .title{display: inline-block;vertical-align: middle; width: 100px;white-space: nowrap;padding: 8px 0; color: #888; font-size: 14px;text-align: right;line-height: 30px;}
+.iui-dialog .ibody .igroup >input{width: 100%;height: 30px;}
+
+
+/**提示框**/
+.iui-tip{position: relative; z-index: 1000000;}
+.iui-tip::after{
+	content: "";
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent; 
+	border-top: 10px solid #232323;
+	border-right:3px solid transparent; 
+	position: absolute;  
+	right: 10px; 
+	top:-10px;
+}
+.iui-tip::before{
+	content: attr(data-tips);
+	width: 80px;
+	height: 36px;
+	background-color:  #232323;
+	border-radius: 4px;
+	text-align: center;
+	color: #eee;
+	line-height: 36px;
+	position: absolute;
+	left:0px; 
+	top:-46px;
+	box-shadow: 0 0 30px rgba(0,0,0,.3);
+}
+.iui-tip-bottom{position: relative; z-index: 1000000;}
+.iui-tip-bottom::before{
+	content: "";
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent; 
+	border-top: 10px solid #232323;
+	border-right:3px solid transparent; 
+	position: absolute;  
+	right: 10px; 
+	top:-10px;
+}
+.iui-tip-bottom::after{
+	content: attr(data-tips);
+	width: 80px;
+	height: 36px;
+	background-color:  #232323;
+	border-radius: 4px;
+	text-align: center;
+	color: #eee;
+	line-height: 36px;
+	position: absolute;
+	left:0px; 
+	top:-46px;
+	box-shadow: 0 0 30px rgba(0,0,0,.3);
+}
+
+/**树状样式**/
+ul.iui-tree{height: auto;list-style: none;padding: 0; line-height: 30px; margin:10px auto 60px; font-size: 14px; font-family: "微软雅黑";}
+ul.iui-tree ul{list-style: none;padding: 0; vertical-align: middle;box-sizing: border-box; }
+ul.iui-tree ul li{height:auto;min-height:30px;display: block;min-height: 30px;}
+ul.iui-tree a{display:inline-block; height: 30px;text-decoration: none; color: #666;}
+ul.iui-tree a:active{color: #444;}
+ul.iui-tree a.selected{color: red!important;  font-weight:700!important;}
+ul.iui-tree i{color: green;}
+ul.iui-tree .sub-node{height: auto;margin-left: 16px; display: none;}
+
+/***分页插件**/
+.iui-paging{display: inline-flex; height: 28px;vertical-align: middle;line-height: 28px; -webkit-user-select:none; white-space: nowrap;}
+.iui-paging >.button{display: block;min-width:20px;padding:0 5px;text-align: center; line-height: 28px;font-size: 12px; color: #444; text-decoration: none; border:1px solid #778276;border-radius:1px;margin:0 2px;}
+.iui-paging >.button:hover{background-color: #95A2AF; color: #fff;}
+.iui-paging >.button:active{background-color: #6D6F71; color: #fff;}
+.iui-paging >.flip{padding: 0 8px;}
+.iui-paging >.omitted{line-height: 20px;font-weight: 700;color: #666;margin:0 3px;}
+.iui-paging >.active{background-color: #848688; color:#fff; font-weight: 600;}
+/**inline元素居中**/
+.inline-center{text-align: center;}
+
+/**
+* * =================================================================================
+*  动画定义
+*  @version 1.0  
+***/
+@keyframes iui-show{
+	0%{transform: scale(.1);}
+	100%{transform: scale(1);}
+}
+@keyframes iui-slideRight{
+	0%{width: 60px;}
+	30%{width: 100px;}
+	50%{width: 180px;}
+	100%{width: 230px;}
+}
+@keyframes iui-slideLeft{
+	0%{width: 230px;}
+	30%{width: 180px;}
+	50%{width: 120px;}
+	100%{width: 60px;}
+}
+
+/**淡出效果**/
+@keyframes iui-fade-out{
+	0%{opacity: 0; transform:  scale(.5);}
+	100%{opacity: 1; transform: scale(1);}
+}
+/**淡入效果**/
+@keyframes iui-fade-in{
+	0%{opacity: 1; transform: scale(1);}
+	100%{opacity: 0;transform: scale(0);}
+}
+
+
+/**
+ * =================================================================================
+ * 滚动条样式
+ */
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/ 
+.scroll::-webkit-scrollbar 
+{ 
+    width: 8px; 
+    height: 8px; 
+    background-color: #fff; 
+} 
+   
+/*定义滚动条轨道 内阴影+圆角*/ 
+.scroll::-webkit-scrollbar-track 
+{ 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 5px; 
+    background-color: #fff; 
+} 
+   
+/*定义滑块 内阴影+圆角*/ 
+.scroll::-webkit-scrollbar-thumb 
+{ 
+    border-radius: 5px; 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3); 
+    background-color: #92DBBC; 
+} 

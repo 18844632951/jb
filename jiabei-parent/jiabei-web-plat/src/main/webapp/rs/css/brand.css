@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-family: "微软雅黑"
+}
+
+.locl {
+    height: 50px;
+    line-height: 50px;
+    color: #24136A;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+    background-color: #fcfcfc;
+}
+
+.locl span {
+    margin: 0 5px;
+    font-weight: 700;
+}
+
+.locl strong {
+    margin-left: 10px;
+}
+
+.container .iui-panel {
+    width: 98%;
+    margin: 0 auto 80px;
+    border: 1px solid #f1f1f1;
+    border-radius: 3px;
+    padding: 2px;
+    overflow: hidden;
+}
+
+.container .iui-table .edt {
+    color: #4DA9ED;
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+.container .iui-table .edt:hover {
+    color: #5280BE;
+}
+
+.container .iui-table .edt:active {
+    color: #54749F;
+}
+
+.container .iui-table .del {
+    color: #55B047;
+    font-size: 12px;
+}
+
+.container .iui-table .del:hover {
+    color: #4EA240;
+}
+
+.container .iui-table .del:active {
+    color: #46B735;
+}
+
+.search-warp {
+    display: inline-block;
+    width: 380px;
+    height: 35px;
+    vertical-align: middle;
+    padding: 0;
+}
+
+#view {
+    display: inline-block;
+    height: 40px;
+}
+
+#view > img {
+    display: block;
+    vertical-align: middle;
+    border: 0;
+}
+
+.sm_selected_icon:hover {
+    background-color: #fff;
+}
+
+.sm_resm_selected_iconsults {
+    width: 580px;
+}
+
+ul.sm_results .iui-tree {
+    margin: 0;
+}
+
+.sm_list_mode::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+}
+
+.sm_list_mode::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.sm_list_mode::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #92DBBC;
+}
+

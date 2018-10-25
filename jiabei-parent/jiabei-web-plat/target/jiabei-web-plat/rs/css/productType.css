@@ -1,0 +1,38 @@
+*{margin: 0; padding:0;}
+
+#tree{margin-left: 20px; margin-top:20px;}
+.container .iui-panel{width:96%;margin:20px auto;height: 560px;display: flex;}
+.container .iui-panel .left{width: 250px;height: 100%;border-right:1px solid #eee; margin-right: 30px;}
+.container .iui-panel .right{width: 70%;}
+.container .iui-panel .right .form{width: 700px;margin:10px auto;}
+.container .form-group{width: 100%;min-height: 30px;height: auto;margin-top:10px; display: flex; justify-content: flex-start;overflow: hidden;}
+.container .form-group >.title{line-height: 45px;width: 100px; display: inline-block; text-align: right; vertical-align: middle;font-size: 14px; margin-right: 10px;}
+.container .form-group >input{width: 100%;display: block;}
+
+/*下拉分类树样式*/
+.sm_selected_icon:hover{background-color: #fff;}
+.sm_results{width: 580px;}
+ ul.sm_results .iui-tree{margin: 0;}
+ .sm_list_mode::-webkit-scrollbar
+ {
+     width: 8px;
+     height: 8px;
+     background-color: #fff;
+ }
+
+/*定义滚动条轨道 内阴影+圆角*/
+.sm_list_mode::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+/*定义滑块 内阴影+圆角*/
+.sm_list_mode::-webkit-scrollbar-thumb
+{
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #92DBBC;
+}
+

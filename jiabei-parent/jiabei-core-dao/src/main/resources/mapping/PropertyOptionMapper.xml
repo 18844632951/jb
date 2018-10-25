@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jb.dao.PropertyOptionMapper" >
+  <resultMap id="BaseResultMap" type="com.jb.entity.PropertyOption" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="cretaeTime" property="cretaetime" jdbcType="BIGINT" />
+    <result column="updateTime" property="updatetime" jdbcType="BIGINT" />
+    <result column="propId" property="propid" jdbcType="BIGINT" />
+    <result column="optionValue" property="optionvalue" jdbcType="VARCHAR" />
+    <result column="optionPic" property="optionpic" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, cretaeTime, updateTime, propId, optionValue, optionPic
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_property_option
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_property_option
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.jb.entity.PropertyOption" >
+    insert into t_property_option (id, cretaeTime, updateTime, 
+      propId, optionValue, optionPic
+      )
+    values (#{id,jdbcType=BIGINT}, #{cretaetime,jdbcType=BIGINT}, #{updatetime,jdbcType=BIGINT}, 
+      #{propid,jdbcType=BIGINT}, #{optionvalue,jdbcType=VARCHAR}, #{optionpic,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jb.entity.PropertyOption" >
+    insert into t_property_option
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cretaetime != null" >
+        cretaeTime,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+      <if test="propid != null" >
+        propId,
+      </if>
+      <if test="optionvalue != null" >
+        optionValue,
+      </if>
+      <if test="optionpic != null" >
+        optionPic,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="cretaetime != null" >
+        #{cretaetime,jdbcType=BIGINT},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=BIGINT},
+      </if>
+      <if test="propid != null" >
+        #{propid,jdbcType=BIGINT},
+      </if>
+      <if test="optionvalue != null" >
+        #{optionvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="optionpic != null" >
+        #{optionpic,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jb.entity.PropertyOption" >
+    update t_property_option
+    <set >
+      <if test="cretaetime != null" >
+        cretaeTime = #{cretaetime,jdbcType=BIGINT},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=BIGINT},
+      </if>
+      <if test="propid != null" >
+        propId = #{propid,jdbcType=BIGINT},
+      </if>
+      <if test="optionvalue != null" >
+        optionValue = #{optionvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="optionpic != null" >
+        optionPic = #{optionpic,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jb.entity.PropertyOption" >
+    update t_property_option
+    set cretaeTime = #{cretaetime,jdbcType=BIGINT},
+      updateTime = #{updatetime,jdbcType=BIGINT},
+      propId = #{propid,jdbcType=BIGINT},
+      optionValue = #{optionvalue,jdbcType=VARCHAR},
+      optionPic = #{optionpic,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

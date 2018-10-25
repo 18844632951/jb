@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jb.dao.SKUMapper" >
+  <resultMap id="BaseResultMap" type="com.jb.entity.SKU" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="createTime" property="createtime" jdbcType="BIGINT" />
+    <result column="updateTime" property="updatetime" jdbcType="BIGINT" />
+    <result column="productId" property="productid" jdbcType="BIGINT" />
+    <result column="skuCode" property="skucode" jdbcType="CHAR" />
+    <result column="skuName" property="skuname" jdbcType="VARCHAR" />
+    <result column="markePrice" property="markeprice" jdbcType="DECIMAL" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="costPrice" property="costprice" jdbcType="DECIMAL" />
+    <result column="saleCount" property="salecount" jdbcType="INTEGER" />
+    <result column="sortIndex" property="sortindex" jdbcType="INTEGER" />
+    <result column="availableStock" property="availablestock" jdbcType="INTEGER" />
+    <result column="frozenStock" property="frozenstock" jdbcType="INTEGER" />
+    <result column="skuProperty" property="skuproperty" jdbcType="VARCHAR" />
+    <result column="skuMainPic" property="skumainpic" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createTime, updateTime, productId, skuCode, skuName, markePrice, price, costPrice, 
+    saleCount, sortIndex, availableStock, frozenStock, skuProperty, skuMainPic
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_sku
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_sku
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.jb.entity.SKU" >
+    insert into t_sku (id, createTime, updateTime, 
+      productId, skuCode, skuName, 
+      markePrice, price, costPrice, 
+      saleCount, sortIndex, availableStock, 
+      frozenStock, skuProperty, skuMainPic
+      )
+    values (#{id,jdbcType=BIGINT}, #{createtime,jdbcType=BIGINT}, #{updatetime,jdbcType=BIGINT}, 
+      #{productid,jdbcType=BIGINT}, #{skucode,jdbcType=CHAR}, #{skuname,jdbcType=VARCHAR}, 
+      #{markeprice,jdbcType=DECIMAL}, #{price,jdbcType=DECIMAL}, #{costprice,jdbcType=DECIMAL}, 
+      #{salecount,jdbcType=INTEGER}, #{sortindex,jdbcType=INTEGER}, #{availablestock,jdbcType=INTEGER}, 
+      #{frozenstock,jdbcType=INTEGER}, #{skuproperty,jdbcType=VARCHAR}, #{skumainpic,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jb.entity.SKU" >
+    insert into t_sku
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+      <if test="productid != null" >
+        productId,
+      </if>
+      <if test="skucode != null" >
+        skuCode,
+      </if>
+      <if test="skuname != null" >
+        skuName,
+      </if>
+      <if test="markeprice != null" >
+        markePrice,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="costprice != null" >
+        costPrice,
+      </if>
+      <if test="salecount != null" >
+        saleCount,
+      </if>
+      <if test="sortindex != null" >
+        sortIndex,
+      </if>
+      <if test="availablestock != null" >
+        availableStock,
+      </if>
+      <if test="frozenstock != null" >
+        frozenStock,
+      </if>
+      <if test="skuproperty != null" >
+        skuProperty,
+      </if>
+      <if test="skumainpic != null" >
+        skuMainPic,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=BIGINT},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=BIGINT},
+      </if>
+      <if test="productid != null" >
+        #{productid,jdbcType=BIGINT},
+      </if>
+      <if test="skucode != null" >
+        #{skucode,jdbcType=CHAR},
+      </if>
+      <if test="skuname != null" >
+        #{skuname,jdbcType=VARCHAR},
+      </if>
+      <if test="markeprice != null" >
+        #{markeprice,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="costprice != null" >
+        #{costprice,jdbcType=DECIMAL},
+      </if>
+      <if test="salecount != null" >
+        #{salecount,jdbcType=INTEGER},
+      </if>
+      <if test="sortindex != null" >
+        #{sortindex,jdbcType=INTEGER},
+      </if>
+      <if test="availablestock != null" >
+        #{availablestock,jdbcType=INTEGER},
+      </if>
+      <if test="frozenstock != null" >
+        #{frozenstock,jdbcType=INTEGER},
+      </if>
+      <if test="skuproperty != null" >
+        #{skuproperty,jdbcType=VARCHAR},
+      </if>
+      <if test="skumainpic != null" >
+        #{skumainpic,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jb.entity.SKU" >
+    update t_sku
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=BIGINT},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=BIGINT},
+      </if>
+      <if test="productid != null" >
+        productId = #{productid,jdbcType=BIGINT},
+      </if>
+      <if test="skucode != null" >
+        skuCode = #{skucode,jdbcType=CHAR},
+      </if>
+      <if test="skuname != null" >
+        skuName = #{skuname,jdbcType=VARCHAR},
+      </if>
+      <if test="markeprice != null" >
+        markePrice = #{markeprice,jdbcType=DECIMAL},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="costprice != null" >
+        costPrice = #{costprice,jdbcType=DECIMAL},
+      </if>
+      <if test="salecount != null" >
+        saleCount = #{salecount,jdbcType=INTEGER},
+      </if>
+      <if test="sortindex != null" >
+        sortIndex = #{sortindex,jdbcType=INTEGER},
+      </if>
+      <if test="availablestock != null" >
+        availableStock = #{availablestock,jdbcType=INTEGER},
+      </if>
+      <if test="frozenstock != null" >
+        frozenStock = #{frozenstock,jdbcType=INTEGER},
+      </if>
+      <if test="skuproperty != null" >
+        skuProperty = #{skuproperty,jdbcType=VARCHAR},
+      </if>
+      <if test="skumainpic != null" >
+        skuMainPic = #{skumainpic,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jb.entity.SKU" >
+    update t_sku
+    set createTime = #{createtime,jdbcType=BIGINT},
+      updateTime = #{updatetime,jdbcType=BIGINT},
+      productId = #{productid,jdbcType=BIGINT},
+      skuCode = #{skucode,jdbcType=CHAR},
+      skuName = #{skuname,jdbcType=VARCHAR},
+      markePrice = #{markeprice,jdbcType=DECIMAL},
+      price = #{price,jdbcType=DECIMAL},
+      costPrice = #{costprice,jdbcType=DECIMAL},
+      saleCount = #{salecount,jdbcType=INTEGER},
+      sortIndex = #{sortindex,jdbcType=INTEGER},
+      availableStock = #{availablestock,jdbcType=INTEGER},
+      frozenStock = #{frozenstock,jdbcType=INTEGER},
+      skuProperty = #{skuproperty,jdbcType=VARCHAR},
+      skuMainPic = #{skumainpic,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

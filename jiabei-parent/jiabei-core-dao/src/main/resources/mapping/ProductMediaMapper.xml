@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jb.dao.ProductMediaMapper" >
+  <resultMap id="BaseResultMap" type="com.jb.entity.ProductMedia" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="createTime" property="createtime" jdbcType="BIGINT" />
+    <result column="updateTime" property="updatetime" jdbcType="BIGINT" />
+    <result column="productId" property="productid" jdbcType="BIGINT" />
+    <result column="mediaType" property="mediatype" jdbcType="VARCHAR" />
+    <result column="sortIndex" property="sortindex" jdbcType="INTEGER" />
+    <result column="resource" property="resource" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createTime, updateTime, productId, mediaType, sortIndex, resource
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_product_media
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_product_media
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.jb.entity.ProductMedia" >
+    insert into t_product_media (id, createTime, updateTime, 
+      productId, mediaType, sortIndex, 
+      resource)
+    values (#{id,jdbcType=BIGINT}, #{createtime,jdbcType=BIGINT}, #{updatetime,jdbcType=BIGINT}, 
+      #{productid,jdbcType=BIGINT}, #{mediatype,jdbcType=VARCHAR}, #{sortindex,jdbcType=INTEGER}, 
+      #{resource,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jb.entity.ProductMedia" >
+    insert into t_product_media
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+      <if test="productid != null" >
+        productId,
+      </if>
+      <if test="mediatype != null" >
+        mediaType,
+      </if>
+      <if test="sortindex != null" >
+        sortIndex,
+      </if>
+      <if test="resource != null" >
+        resource,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=BIGINT},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=BIGINT},
+      </if>
+      <if test="productid != null" >
+        #{productid,jdbcType=BIGINT},
+      </if>
+      <if test="mediatype != null" >
+        #{mediatype,jdbcType=VARCHAR},
+      </if>
+      <if test="sortindex != null" >
+        #{sortindex,jdbcType=INTEGER},
+      </if>
+      <if test="resource != null" >
+        #{resource,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jb.entity.ProductMedia" >
+    update t_product_media
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=BIGINT},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=BIGINT},
+      </if>
+      <if test="productid != null" >
+        productId = #{productid,jdbcType=BIGINT},
+      </if>
+      <if test="mediatype != null" >
+        mediaType = #{mediatype,jdbcType=VARCHAR},
+      </if>
+      <if test="sortindex != null" >
+        sortIndex = #{sortindex,jdbcType=INTEGER},
+      </if>
+      <if test="resource != null" >
+        resource = #{resource,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jb.entity.ProductMedia" >
+    update t_product_media
+    set createTime = #{createtime,jdbcType=BIGINT},
+      updateTime = #{updatetime,jdbcType=BIGINT},
+      productId = #{productid,jdbcType=BIGINT},
+      mediaType = #{mediatype,jdbcType=VARCHAR},
+      sortIndex = #{sortindex,jdbcType=INTEGER},
+      resource = #{resource,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jb.dao.BrandMapper">
+    <resultMap id="BaseResultMap" type="com.jb.entity.Brand">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="createTime" property="createtime" jdbcType="BIGINT"/>
+        <result column="updateTime" property="updatetime" jdbcType="BIGINT"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="englishName" property="englishname" jdbcType="VARCHAR"/>
+        <result column="fristLetter" property="fristletter" jdbcType="CHAR"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="productType" property="producttype" jdbcType="BIGINT"/>
+        <result column="sortIndex" property="sortindex" jdbcType="INTEGER"/>
+        <result column="logo" property="logo" jdbcType="VARCHAR"/>
+    </resultMap>
+    
+    <resultMap id="BaseAndTypeResultMap" type="com.jb.entity.Brand" extends="BaseResultMap">
+        <association property="types" javaType="com.jb.entity.ProductType">
+            <id column="tid" property="id" jdbcType="BIGINT"/>
+            <result column="tname" property="name" jdbcType="VARCHAR"/>
+        </association>
+    </resultMap>
+    
+    <sql id="Base_Column_List">
+    id, createTime, updateTime, name, englishName, fristLetter, description, productType, 
+    sortIndex, logo
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from t_brand
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_brand
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="com.jb.entity.Brand">
+    insert into t_brand (id, createTime, updateTime, 
+      name, englishName, fristLetter, 
+      description, productType, sortIndex, 
+      logo)
+    values (#{id,jdbcType=BIGINT}, #{createtime,jdbcType=BIGINT}, #{updatetime,jdbcType=BIGINT}, 
+      #{name,jdbcType=VARCHAR}, #{englishname,jdbcType=VARCHAR}, #{fristletter,jdbcType=CHAR}, 
+      #{description,jdbcType=VARCHAR}, #{producttype,jdbcType=BIGINT}, #{sortindex,jdbcType=INTEGER}, 
+      #{logo,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.jb.entity.Brand">
+        insert into t_brand
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createtime != null">
+                createTime,
+            </if>
+            <if test="updatetime != null">
+                updateTime,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="englishname != null">
+                englishName,
+            </if>
+            <if test="fristletter != null">
+                fristLetter,
+            </if>
+            <if test="description != null">
+                description,
+            </if>
+            <if test="producttype != null">
+                productType,
+            </if>
+            <if test="sortindex != null">
+                sortIndex,
+            </if>
+            <if test="logo != null">
+                logo,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="createtime != null">
+                #{createtime,jdbcType=BIGINT},
+            </if>
+            <if test="updatetime != null">
+                #{updatetime,jdbcType=BIGINT},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="englishname != null">
+                #{englishname,jdbcType=VARCHAR},
+            </if>
+            <if test="fristletter != null">
+                #{fristletter,jdbcType=CHAR},
+            </if>
+            <if test="description != null">
+                #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="producttype != null">
+                #{producttype,jdbcType=BIGINT},
+            </if>
+            <if test="sortindex != null">
+                #{sortindex,jdbcType=INTEGER},
+            </if>
+            <if test="logo != null">
+                #{logo,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.jb.entity.Brand">
+        update t_brand
+        <set>
+            <if test="createtime != null">
+                createTime = #{createtime,jdbcType=BIGINT},
+            </if>
+            <if test="updatetime != null">
+                updateTime = #{updatetime,jdbcType=BIGINT},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="englishname != null">
+                englishName = #{englishname,jdbcType=VARCHAR},
+            </if>
+            <if test="fristletter != null">
+                fristLetter = #{fristletter,jdbcType=CHAR},
+            </if>
+            <if test="description != null">
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="producttype != null">
+                productType = #{producttype,jdbcType=BIGINT},
+            </if>
+            <if test="sortindex != null">
+                sortIndex = #{sortindex,jdbcType=INTEGER},
+            </if>
+            <if test="logo != null">
+                logo = #{logo,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.jb.entity.Brand">
+    update t_brand
+    set createTime = #{createtime,jdbcType=BIGINT},
+      updateTime = #{updatetime,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      englishName = #{englishname,jdbcType=VARCHAR},
+      fristLetter = #{fristletter,jdbcType=CHAR},
+      description = #{description,jdbcType=VARCHAR},
+      productType = #{producttype,jdbcType=BIGINT},
+      sortIndex = #{sortindex,jdbcType=INTEGER},
+      logo = #{logo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+    <!--分页查找数据-->
+    <select id="get" parameterType="com.jb.core.base.PageResult" resultMap="BaseAndTypeResultMap">
+        SELECT
+        t_brand.id id,
+        t_brand.createTime createTime,
+        t_brand.updateTime updateTime,
+        t_brand.`name` name,
+        t_brand.englishName englishName,
+        t_brand.fristLetter fristLetter,
+        t_brand.description description,
+        t_brand.productType productType,
+        t_brand.sortIndex sortIndex,
+        t_brand.logo logo,
+        t_product_type.id tid,
+        t_product_type.`name` tname
+        FROM
+        t_brand
+        INNER JOIN t_product_type ON t_brand.productType = t_product_type.id
+        <where>
+            <if test="page.search != null">
+                <foreach collection="page.search.keys" item="key" separator="and">
+                    t_brand.${key} like CONCAT(CONCAT('%', #{page.search[${key}]}), '%')
+                </foreach>
+            </if>
+        </where>
+        LIMIT ${page.start}, #{page.length}
+    </select>
+
+    <select id="getAllRows" resultType="long">
+        select count(*) FROM t_brand
+    </select>
+
+    <select id="getBrandByName" parameterType="java.lang.String" resultType="com.jb.entity.Brand">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        t_brand
+        WHERE  name LIKE  CONCAT(#{name},"%")
+    </select>
+</mapper>

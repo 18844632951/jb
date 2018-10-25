@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jb.dao.PropertyMapper" >
+  <resultMap id="BaseResultMap" type="com.jb.entity.Property" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="createTime" property="createtime" jdbcType="BIGINT" />
+    <result column="updateTime" property="updatetime" jdbcType="BIGINT" />
+    <result column="propName" property="propname" jdbcType="VARCHAR" />
+    <result column="productType" property="producttype" jdbcType="BIGINT" />
+    <result column="type" property="type" jdbcType="TINYINT" />
+    <result column="inputMode" property="inputmode" jdbcType="TINYINT" />
+    <result column="inputType" property="inputtype" jdbcType="TINYINT" />
+    <result column="validatePattem" property="validatepattem" jdbcType="VARCHAR" />
+    <result column="remake" property="remake" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createTime, updateTime, propName, productType, type, inputMode, inputType, validatePattem, 
+    remake
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_property
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_property
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.jb.entity.Property" >
+    insert into t_property (id, createTime, updateTime, 
+      propName, productType, type, 
+      inputMode, inputType, validatePattem, 
+      remake)
+    values (#{id,jdbcType=BIGINT}, #{createtime,jdbcType=BIGINT}, #{updatetime,jdbcType=BIGINT}, 
+      #{propname,jdbcType=VARCHAR}, #{producttype,jdbcType=BIGINT}, #{type,jdbcType=TINYINT}, 
+      #{inputmode,jdbcType=TINYINT}, #{inputtype,jdbcType=TINYINT}, #{validatepattem,jdbcType=VARCHAR}, 
+      #{remake,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jb.entity.Property" >
+    insert into t_property
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+      <if test="propname != null" >
+        propName,
+      </if>
+      <if test="producttype != null" >
+        productType,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="inputmode != null" >
+        inputMode,
+      </if>
+      <if test="inputtype != null" >
+        inputType,
+      </if>
+      <if test="validatepattem != null" >
+        validatePattem,
+      </if>
+      <if test="remake != null" >
+        remake,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=BIGINT},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=BIGINT},
+      </if>
+      <if test="propname != null" >
+        #{propname,jdbcType=VARCHAR},
+      </if>
+      <if test="producttype != null" >
+        #{producttype,jdbcType=BIGINT},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="inputmode != null" >
+        #{inputmode,jdbcType=TINYINT},
+      </if>
+      <if test="inputtype != null" >
+        #{inputtype,jdbcType=TINYINT},
+      </if>
+      <if test="validatepattem != null" >
+        #{validatepattem,jdbcType=VARCHAR},
+      </if>
+      <if test="remake != null" >
+        #{remake,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jb.entity.Property" >
+    update t_property
+    <set >
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=BIGINT},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=BIGINT},
+      </if>
+      <if test="propname != null" >
+        propName = #{propname,jdbcType=VARCHAR},
+      </if>
+      <if test="producttype != null" >
+        productType = #{producttype,jdbcType=BIGINT},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="inputmode != null" >
+        inputMode = #{inputmode,jdbcType=TINYINT},
+      </if>
+      <if test="inputtype != null" >
+        inputType = #{inputtype,jdbcType=TINYINT},
+      </if>
+      <if test="validatepattem != null" >
+        validatePattem = #{validatepattem,jdbcType=VARCHAR},
+      </if>
+      <if test="remake != null" >
+        remake = #{remake,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jb.entity.Property" >
+    update t_property
+    set createTime = #{createtime,jdbcType=BIGINT},
+      updateTime = #{updatetime,jdbcType=BIGINT},
+      propName = #{propname,jdbcType=VARCHAR},
+      productType = #{producttype,jdbcType=BIGINT},
+      type = #{type,jdbcType=TINYINT},
+      inputMode = #{inputmode,jdbcType=TINYINT},
+      inputType = #{inputtype,jdbcType=TINYINT},
+      validatePattem = #{validatepattem,jdbcType=VARCHAR},
+      remake = #{remake,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

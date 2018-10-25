@@ -1,0 +1,12 @@
+com\jb\entity\PropertyOption.class
+com\jb\entity\Brand.class
+com\jb\entity\ProductType.class
+com\jb\entity\ProductMedia.class
+com\jb\entity\ProductViewProperty.class
+com\jb\entity\SKU.class
+com\jb\entity\ProductExt.class
+com\jb\entity\ProductComment.class
+com\jb\entity\ProductProperty.class
+com\jb\entity\Project.class
+com\jb\entity\Property.class
+com\jb\entity\SkuProperty.class

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jb.dao.ProductPropertyMapper" >
+  <resultMap id="BaseResultMap" type="com.jb.entity.ProductProperty" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="cretaeTime" property="cretaetime" jdbcType="BIGINT" />
+    <result column="productId" property="productid" jdbcType="BIGINT" />
+    <result column="propId" property="propid" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, cretaeTime, productId, propId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_product_property
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_product_property
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.jb.entity.ProductProperty" >
+    insert into t_product_property (id, cretaeTime, productId, 
+      propId)
+    values (#{id,jdbcType=BIGINT}, #{cretaetime,jdbcType=BIGINT}, #{productid,jdbcType=BIGINT}, 
+      #{propid,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jb.entity.ProductProperty" >
+    insert into t_product_property
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cretaetime != null" >
+        cretaeTime,
+      </if>
+      <if test="productid != null" >
+        productId,
+      </if>
+      <if test="propid != null" >
+        propId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="cretaetime != null" >
+        #{cretaetime,jdbcType=BIGINT},
+      </if>
+      <if test="productid != null" >
+        #{productid,jdbcType=BIGINT},
+      </if>
+      <if test="propid != null" >
+        #{propid,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jb.entity.ProductProperty" >
+    update t_product_property
+    <set >
+      <if test="cretaetime != null" >
+        cretaeTime = #{cretaetime,jdbcType=BIGINT},
+      </if>
+      <if test="productid != null" >
+        productId = #{productid,jdbcType=BIGINT},
+      </if>
+      <if test="propid != null" >
+        propId = #{propid,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jb.entity.ProductProperty" >
+    update t_product_property
+    set cretaeTime = #{cretaetime,jdbcType=BIGINT},
+      productId = #{productid,jdbcType=BIGINT},
+      propId = #{propid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jb.dao.ProductViewPropertyMapper" >
+  <resultMap id="BaseResultMap" type="com.jb.entity.ProductViewProperty" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="cretaeTime" property="cretaetime" jdbcType="BIGINT" />
+    <result column="updateTime" property="updatetime" jdbcType="BIGINT" />
+    <result column="productId" property="productid" jdbcType="BIGINT" />
+    <result column="propId" property="propid" jdbcType="BIGINT" />
+    <result column="propName" property="propname" jdbcType="VARCHAR" />
+    <result column="optionId" property="optionid" jdbcType="BIGINT" />
+    <result column="value" property="value" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, cretaeTime, updateTime, productId, propId, propName, optionId, value
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_product_view_property
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_product_view_property
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.jb.entity.ProductViewProperty" >
+    insert into t_product_view_property (id, cretaeTime, updateTime, 
+      productId, propId, propName, 
+      optionId, value)
+    values (#{id,jdbcType=BIGINT}, #{cretaetime,jdbcType=BIGINT}, #{updatetime,jdbcType=BIGINT}, 
+      #{productid,jdbcType=BIGINT}, #{propid,jdbcType=BIGINT}, #{propname,jdbcType=VARCHAR}, 
+      #{optionid,jdbcType=BIGINT}, #{value,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jb.entity.ProductViewProperty" >
+    insert into t_product_view_property
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cretaetime != null" >
+        cretaeTime,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+      <if test="productid != null" >
+        productId,
+      </if>
+      <if test="propid != null" >
+        propId,
+      </if>
+      <if test="propname != null" >
+        propName,
+      </if>
+      <if test="optionid != null" >
+        optionId,
+      </if>
+      <if test="value != null" >
+        value,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="cretaetime != null" >
+        #{cretaetime,jdbcType=BIGINT},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=BIGINT},
+      </if>
+      <if test="productid != null" >
+        #{productid,jdbcType=BIGINT},
+      </if>
+      <if test="propid != null" >
+        #{propid,jdbcType=BIGINT},
+      </if>
+      <if test="propname != null" >
+        #{propname,jdbcType=VARCHAR},
+      </if>
+      <if test="optionid != null" >
+        #{optionid,jdbcType=BIGINT},
+      </if>
+      <if test="value != null" >
+        #{value,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jb.entity.ProductViewProperty" >
+    update t_product_view_property
+    <set >
+      <if test="cretaetime != null" >
+        cretaeTime = #{cretaetime,jdbcType=BIGINT},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=BIGINT},
+      </if>
+      <if test="productid != null" >
+        productId = #{productid,jdbcType=BIGINT},
+      </if>
+      <if test="propid != null" >
+        propId = #{propid,jdbcType=BIGINT},
+      </if>
+      <if test="propname != null" >
+        propName = #{propname,jdbcType=VARCHAR},
+      </if>
+      <if test="optionid != null" >
+        optionId = #{optionid,jdbcType=BIGINT},
+      </if>
+      <if test="value != null" >
+        value = #{value,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jb.entity.ProductViewProperty" >
+    update t_product_view_property
+    set cretaeTime = #{cretaetime,jdbcType=BIGINT},
+      updateTime = #{updatetime,jdbcType=BIGINT},
+      productId = #{productid,jdbcType=BIGINT},
+      propId = #{propid,jdbcType=BIGINT},
+      propName = #{propname,jdbcType=VARCHAR},
+      optionId = #{optionid,jdbcType=BIGINT},
+      value = #{value,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

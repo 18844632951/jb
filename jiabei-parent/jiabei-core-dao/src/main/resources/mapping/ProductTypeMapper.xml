@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jb.dao.ProductTypeMapper">
+    <resultMap id="BaseResultMap" type="com.jb.entity.ProductType">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="createTime" property="createtime" jdbcType="BIGINT"/>
+        <result column="updateTime" property="updatetime" jdbcType="BIGINT"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="pid" property="pid" jdbcType="BIGINT"/>
+        <result column="logo" property="logo" jdbcType="VARCHAR"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="sortIndex" property="sortindex" jdbcType="INTEGER"/>
+        <result column="path" property="path" jdbcType="VARCHAR"/>
+        <result column="totalCount" property="totalcount" jdbcType="INTEGER"/>
+        <result column="seoTitle" property="seotitle" jdbcType="VARCHAR"/>
+        <result column="seoKeywords" property="seokeywords" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, createTime, updateTime, name, pid, logo, description, sortIndex, path, totalCount, 
+    seoTitle, seoKeywords
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from t_product_type
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_product_type
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="com.jb.entity.ProductType">
+    insert into t_product_type (id, createTime, updateTime, 
+      name, pid, logo, description, 
+      sortIndex, path, totalCount, 
+      seoTitle, seoKeywords)
+    values (#{id,jdbcType=BIGINT}, #{createtime,jdbcType=BIGINT}, #{updatetime,jdbcType=BIGINT}, 
+      #{name,jdbcType=VARCHAR}, #{pid,jdbcType=BIGINT}, #{logo,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{sortindex,jdbcType=INTEGER}, #{path,jdbcType=VARCHAR}, #{totalcount,jdbcType=INTEGER}, 
+      #{seotitle,jdbcType=VARCHAR}, #{seokeywords,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.jb.entity.ProductType" useGeneratedKeys="true" keyProperty="id">
+        insert into t_product_type
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createtime != null">
+                createTime,
+            </if>
+            <if test="updatetime != null">
+                updateTime,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="pid != null">
+                pid,
+            </if>
+            <if test="logo != null">
+                logo,
+            </if>
+            <if test="description != null">
+                description,
+            </if>
+            <if test="sortindex != null">
+                sortIndex,
+            </if>
+            <if test="path != null">
+                path,
+            </if>
+            <if test="totalcount != null">
+                totalCount,
+            </if>
+            <if test="seotitle != null">
+                seoTitle,
+            </if>
+            <if test="seokeywords != null">
+                seoKeywords,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="createtime != null">
+                #{createtime,jdbcType=BIGINT},
+            </if>
+            <if test="updatetime != null">
+                #{updatetime,jdbcType=BIGINT},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="pid != null">
+                #{pid,jdbcType=BIGINT},
+            </if>
+            <if test="logo != null">
+                #{logo,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="sortindex != null">
+                #{sortindex,jdbcType=INTEGER},
+            </if>
+            <if test="path != null">
+                #{path,jdbcType=VARCHAR},
+            </if>
+            <if test="totalcount != null">
+                #{totalcount,jdbcType=INTEGER},
+            </if>
+            <if test="seotitle != null">
+                #{seotitle,jdbcType=VARCHAR},
+            </if>
+            <if test="seokeywords != null">
+                #{seokeywords,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.jb.entity.ProductType">
+        update t_product_type
+        <set>
+            <if test="createtime != null">
+                createTime = #{createtime,jdbcType=BIGINT},
+            </if>
+            <if test="updatetime != null">
+                updateTime = #{updatetime,jdbcType=BIGINT},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="pid != null">
+                pid = #{pid,jdbcType=BIGINT},
+            </if>
+            <if test="logo != null">
+                logo = #{logo,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="sortindex != null">
+                sortIndex = #{sortindex,jdbcType=INTEGER},
+            </if>
+            <if test="path != null">
+                path = #{path,jdbcType=VARCHAR},
+            </if>
+            <if test="totalcount != null">
+                totalCount = #{totalcount,jdbcType=INTEGER},
+            </if>
+            <if test="seotitle != null">
+                seoTitle = #{seotitle,jdbcType=VARCHAR},
+            </if>
+            <if test="seokeywords != null">
+                seoKeywords = #{seokeywords,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.jb.entity.ProductType">
+    update t_product_type
+    set createTime = #{createtime,jdbcType=BIGINT},
+      updateTime = #{updatetime,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=BIGINT},
+      logo = #{logo,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      sortIndex = #{sortindex,jdbcType=INTEGER},
+      path = #{path,jdbcType=VARCHAR},
+      totalCount = #{totalcount,jdbcType=INTEGER},
+      seoTitle = #{seotitle,jdbcType=VARCHAR},
+      seoKeywords = #{seokeywords,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+    <!--通过父类ID获取子级类目-->
+    <select id="getTypeByPid" parameterType="java.lang.Long" resultType="com.jb.entity.ProductType">
+        SELECT
+        t_product_type.id,
+        t_product_type.createTime,
+        t_product_type.updateTime,
+        t_product_type.`name`,
+        t_product_type.logo,
+        t_product_type.description,
+        t_product_type.sortIndex,
+        t_product_type.path,
+        t_product_type.totalCount,
+        t_product_type.seoTitle,
+        t_product_type.seoKeywords,
+        t_product_type.pid
+        FROM
+        t_product_type
+        WHERE
+            path LIKE CONCAT(CONCAT(CONCAT('.',#{pid}),"."),"%")
+    </select>
+
+    <!--通过类目路径获取类目信息-->
+    <select id="getTypeAll" parameterType="string" resultType="com.jb.entity.ProductType">
+       SELECT
+        t_product_type.id,
+        t_product_type.createTime,
+        t_product_type.updateTime,
+        t_product_type.`name`,
+        t_product_type.logo,
+        t_product_type.description,
+        t_product_type.sortIndex,
+        t_product_type.path,
+        t_product_type.totalCount,
+        t_product_type.seoTitle,
+        t_product_type.seoKeywords,
+        t_product_type.pid
+        FROM
+        t_product_type
+    </select>
+
+    <delete id="deleteCascade">
+        DELETE from t_product_type WHERE t_product_type.path like CONCAT(#{path},'%')
+    </delete>
+</mapper>
