@@ -1,7 +1,5 @@
 package com.jb.test.dubbo;
 
-import com.jb.dao.BrandMapper;
-import com.jb.entity.Brand;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;

@@ -68,7 +68,7 @@ public class ProductCenterServiceImpl implements ProductCenterService {
         productExtMapper.insertSelective(productExt);
         //3. 商品媒体信息添加
         productMedia.setProductid(product.getId());
-//      productMedia.set();
+
 
 
 
